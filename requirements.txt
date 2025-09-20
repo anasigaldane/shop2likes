@@ -5,5 +5,7 @@ googleapis-common-protos
 pycryptodome
 protobuf
 Werkzeug
-cachetools==5.3.1
+cachetools
 waitress
+python-dotenv
+gunicorn
