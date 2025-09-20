@@ -53,7 +53,7 @@ def decode_info(data: bytes):
 def get_headers(token: str):
     return {
         "User-Agent": "Dalvik/2.1.0",
-        "Authorization": token,
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInN2ciI6IjEiLCJ0eXAiOiJKV1QifQ.eyJhY2NvdW50X2lkIjoxMzMwNDg3NzExOSwibmlja25hbWUiOiJTaG9wMmxpa2VzIiwibm90aV9yZWdpb24iOiJNRSIsImxvY2tfcmVnaW9uIjoiTUUiLCJleHRlcm5hbF9pZCI6IjhjMjk2MjY3M2FiMTQxNmI3MWM5MTcyMDQxODBmNGQ5IiwiZXh0ZXJuYWxfdHlwZSI6NCwicGxhdF9pZCI6MCwiY2xpZW50X3ZlcnNpb24iOiIiLCJlbXVsYXRvcl9zY29yZSI6MTAwLCJpc19lbXVsYXRvciI6dHJ1ZSwiY291bnRyeV9jb2RlIjoiVVMiLCJleHRlcm5hbF91aWQiOjQxNjcyMDIxNDAsInJlZ19hdmF0YXIiOjEwMjAwMDAwNywic291cmNlIjowLCJsb2NrX3JlZ2lvbl90aW1lIjoxNzU3ODkxNzYxLCJjbGllbnRfdHlwZSI6MSwic2lnbmF0dXJlX21kNSI6IiIsInVzaW5nX3ZlcnNpb24iOjAsInJlbGVhc2VfY2hhbm5lbCI6IiIsInJlbGVhc2VfdmVyc2lvbiI6Ik9CNTAiLCJleHAiOjE3NTgzOTk3ODl9.C-wZghl7KeSlLYw5yB1CE5uJSPZzlGw2MXXfWXX2OqI",
         "Content-Type": "application/x-www-form-urlencoded",
         "X-Unity-Version": "2018.4.11f1",
         "X-GA": "v1 1",
@@ -89,8 +89,8 @@ def get_token_and_server(uid: str, password: str):
         response = requests.get(AUTH_URL, params={"uid": uid, "password": password}, timeout=5)
         if response.status_code == 200:
             data = response.json()
-            token = data.get("token")
-            server_url = data.get("serverUrl")
+            token = data.get("Bearer eyJhbGciOiJIUzI1NiIsInN2ciI6IjEiLCJ0eXAiOiJKV1QifQ.eyJhY2NvdW50X2lkIjoxMzMwNDg3NzExOSwibmlja25hbWUiOiJTaG9wMmxpa2VzIiwibm90aV9yZWdpb24iOiJNRSIsImxvY2tfcmVnaW9uIjoiTUUiLCJleHRlcm5hbF9pZCI6IjhjMjk2MjY3M2FiMTQxNmI3MWM5MTcyMDQxODBmNGQ5IiwiZXh0ZXJuYWxfdHlwZSI6NCwicGxhdF9pZCI6MCwiY2xpZW50X3ZlcnNpb24iOiIiLCJlbXVsYXRvcl9zY29yZSI6MTAwLCJpc19lbXVsYXRvciI6dHJ1ZSwiY291bnRyeV9jb2RlIjoiVVMiLCJleHRlcm5hbF91aWQiOjQxNjcyMDIxNDAsInJlZ19hdmF0YXIiOjEwMjAwMDAwNywic291cmNlIjowLCJsb2NrX3JlZ2lvbl90aW1lIjoxNzU3ODkxNzYxLCJjbGllbnRfdHlwZSI6MSwic2lnbmF0dXJlX21kNSI6IiIsInVzaW5nX3ZlcnNpb24iOjAsInJlbGVhc2VfY2hhbm5lbCI6IiIsInJlbGVhc2VfdmVyc2lvbiI6Ik9CNTAiLCJleHAiOjE3NTgzOTk3ODl9.C-wZghl7KeSlLYw5yB1CE5uJSPZzlGw2MXXfWXX2OqI")
+            server_url = data.get("https://clientbp.ggblueshark.com")
             return token, server_url
     except:
         return None, None
