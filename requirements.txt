@@ -5,7 +5,4 @@ googleapis-common-protos
 pycryptodome
 protobuf
 Werkzeug
-cachetools
-waitress
-python-dotenv
-gunicorn
+requests

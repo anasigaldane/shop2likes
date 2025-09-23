@@ -1,16 +1,22 @@
+
+
+
 {
   "version": 2,
   "builds": [
     {
-      "src": "app/__init__.py",
-      "use": "@vercel/python"
+      "src": "app.py",
+      "use": "@vercel/python",
+      "config": {
+        "runtime": "python3.12"
+      }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "app/__init__.py"
+      "dest": "app.py"
     }
-  ]
-
+   ],
+  "regions": ["bom1"]
 }
